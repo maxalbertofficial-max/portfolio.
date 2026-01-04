@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Max Albert Digital Studio | Strategic Design & Development</title>
+    <meta name="description" content="Max Albert Digital Studio is a full-service digital agency specializing in strategic design, development, and digital solutions that drive business growth since 2020.">
+    <meta name="keywords" content="digital studio, web design, web development, UI/UX, mobile apps, e-commerce, digital strategy">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 16px;
+        --max-width: 1200px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --accent-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.7;
+        min-height: 100vh;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(234, 234, 234, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      header.scrolled {
+        padding: 15px 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .logo-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--accent-gradient);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+
+      .logo:hover .logo-icon {
+        transform: rotate(10deg);
+      }
+
+      .logo span {
+        color: #333;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        transition: var(--transition);
+        position: relative;
+        padding: 8px 0;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--accent-gradient);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 160px 0 120px;
+        text-align: center;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(106,17,203,0.03)"/></svg>');
+        background-size: 300px 300px;
+        opacity: 0.5;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 900;
+        margin-bottom: 24px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+        color: var(--secondary);
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .btn {
+        padding: 18px 36px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: var(--accent-gradient);
+        color: white;
+        box-shadow: 0 10px 25px rgba(106, 17, 203, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(106, 17, 203, 0.4);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--primary);
+        border: 2px solid #e2e8f0;
+      }
+
+      .btn-secondary:hover {
+        background: #f8fafc;
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+        border-color: var(--accent);
+      }
+
+      /* Stats Section */
+      .stats-section {
+        padding: 80px 0;
+        background: var(--gradient);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stats-section:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+        background-size: 400px 400px;
+        opacity: 0.3;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-item h3 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        color: white;
+        position: relative;
+        display: inline-block;
+      }
+
+      .stat-item h3:after {
+        content: "+";
+        position: absolute;
+        top: 0;
+        right: -20px;
+        font-size: 2rem;
+        opacity: 0.8;
+      }
+
+      .stat-item p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      /* Story Sections */
+      .story-section {
+        padding: 100px 0;
+      }
+
+      .story-block {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        margin-bottom: 120px;
+      }
+
+      .story-block:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .story-image {
+        flex: 1;
+        min-height: 500px;
+        border-radius: var(--radius);
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .story-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .story-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .story-image:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.1) 100%);
+        z-index: 1;
+      }
+
+      .story-image:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .story-content {
+        flex: 1;
+      }
+
+      .story-number {
+        font-size: 4rem;
+        font-weight: 900;
+        color: #e2e8f0;
+        line-height: 1;
+        margin-bottom: 20px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .story-content h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        color: var(--primary);
+        line-height: 1.2;
+      }
+
+      .story-content p {
+        font-size: 1.1rem;
+        color: var(--secondary);
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      .story-quote {
+        padding: 60px;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        border-radius: var(--radius);
+        margin: 80px 0;
+        text-align: center;
+        border-left: 5px solid transparent;
+        border-image: var(--accent-gradient);
+        border-image-slice: 1;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .story-quote:before {
+        content: "\201C";
+        position: absolute;
+        top: -40px;
+        left: 40px;
+        font-size: 12rem;
+        color: rgba(106, 17, 203, 0.1);
+        font-family: serif;
+        line-height: 1;
+      }
+
+      .story-quote p {
+        font-size: 1.6rem;
+        font-style: italic;
+        color: var(--primary);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .quote-author {
+        font-weight: 600;
+        color: var(--secondary);
+        position: relative;
+        z-index: 1;
+        font-size: 1.1rem;
+      }
+
+      /* Values Section */
+      .values-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .section-title {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 80px;
+      }
+
+      .section-title h2 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-title p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        line-height: 1.8;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+      }
+
+      .value-card {
+        text-align: center;
+        padding: 50px 30px;
+        background: white;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+      }
+
+      .value-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 28px;
+        color: white;
+        transition: var(--transition);
+      }
+
+      .value-card:hover .value-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .value-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--primary);
+      }
+
+      .value-card p {
+        color: var(--secondary);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      /* Portfolio Section */
+      .portfolio-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .portfolio-filter {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 10px 24px;
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--secondary);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--accent-gradient);
+        color: white;
+        border-color: transparent;
+        transform: translateY(-2px);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .portfolio-item {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .portfolio-img {
+        height: 250px;
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .portfolio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-item:hover .portfolio-img img {
+        transform: scale(1.05);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(106, 17, 203, 0.8) 0%, rgba(37, 117, 252, 0.8) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-overlay a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 20px;
+        text-decoration: none;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
+
+      .portfolio-item:hover .portfolio-overlay a {
+        transform: translateY(0);
+      }
+
+      .portfolio-content {
+        padding: 30px;
+      }
+
+      .portfolio-content h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      .portfolio-content p {
+        color: var(--secondary);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .portfolio-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .portfolio-tag {
+        background: #f1f5f9;
+        color: #475569;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .service-card {
+        padding: 40px 30px;
+        background: white;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+        background: var(--accent-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 28px;
+        color: white;
+        transition: var(--transition);
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1);
+      }
+
+      .service-card h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--primary);
+      }
+
+      .service-card p {
+        color: var(--secondary);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      /* Team Section */
+      .team-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .team-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+      }
+
+      .team-intro h2 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .team-intro p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        line-height: 1.8;
+      }
+
+      .team-members {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: 40px 30px;
+        background: white;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .member-avatar {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        margin: 0 auto 24px;
+        overflow: hidden;
+        border: 5px solid white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .member-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-member h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+
+      .member-role {
+        color: var(--secondary);
+        font-size: 16px;
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+
+      .member-bio {
+        color: var(--secondary);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      .contact-info {
+        padding-right: 20px;
+      }
+
+      .contact-info h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-info p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        line-height: 1.8;
+        margin-bottom: 40px;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: var(--accent-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .contact-item:hover .contact-icon {
+        transform: rotate(5deg);
+      }
+
+      .contact-text h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--primary);
+      }
+
+      .contact-text p {
+        font-size: 1rem;
+        color: var(--secondary);
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      .contact-form {
+        background: white;
+        padding: 50px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 16px 18px;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        font-size: 1rem;
+        color: var(--primary);
+        transition: var(--transition);
+        background: #fafafa;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #6a11cb;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+        font-family: inherit;
+      }
+
+      /* Footer */
+      footer {
+        padding: 80px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: white;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+        text-align: left;
+        margin-bottom: 60px;
+      }
+
+      .footer-logo {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .footer-logo .logo-icon {
+        background: white;
+        color: #0f172a;
+      }
+
+      .footer-about p {
+        color: #cbd5e1;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .footer-links h4,
+      .footer-contact h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      .footer-links ul,
+      .footer-contact ul {
+        list-style: none;
+      }
+
+      .footer-links li,
+      .footer-contact li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a,
+      .footer-contact a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .footer-links a:hover,
+      .footer-contact a:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: #94a3b8;
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent-gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 20px;
+        box-shadow: 0 5px 20px rgba(106, 17, 203, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(106, 17, 203, 0.4);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1100px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .story-block {
+          flex-direction: column !important;
+          gap: 40px;
+        }
+
+        .story-image {
+          min-height: 350px;
+          width: 100%;
+        }
+
+        .section-title h2,
+        .team-intro h2,
+        .contact-info h2 {
+          font-size: 2.5rem;
+        }
+        
+        .portfolio-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-links {
+          gap: 20px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero {
+          padding: 140px 0 80px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.2rem;
+        }
+
+        .story-section {
+          padding: 60px 0;
+        }
+
+        .story-block {
+          margin-bottom: 60px;
+        }
+
+        .story-content h2 {
+          font-size: 2rem;
+        }
+
+        .story-quote {
+          padding: 40px;
+          margin: 60px 0;
+        }
+
+        .story-quote p {
+          font-size: 1.3rem;
+        }
+
+        .values-section,
+        .team-section,
+        .contact-section,
+        .portfolio-section,
+        .services-section {
+          padding: 60px 0;
+        }
+        
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .story-number {
+          font-size: 3rem;
+        }
+
+        .story-content h2 {
+          font-size: 1.8rem;
+        }
+
+        .values-grid,
+        .team-members,
+        .portfolio-grid,
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .contact-form {
+          padding: 30px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <div class="logo-icon">MA</div>
+            <span>Max Albert</span>
+          </a>
+          <nav class="nav-links">
+            <a href="#story">Our Story</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#team">Our Team</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Crafting Digital Excellence Since 2020</h1>
+        <p>
+          We transform business challenges into strategic digital solutions that drive measurable growth. Your success is our mission.
+        </p>
+        <div class="cta-buttons">
+          <a href="#portfolio" class="btn btn-primary">
+            <i class="fas fa-briefcase"></i> View Our Work
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-paper-plane"></i> Start a Project
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>200</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat-item">
+            <h3>100</h3>
+            <p>Satisfied Clients</p>
+          </div>
+          <div class="stat-item">
+            <h3>4</h3>
+            <p>Years of Excellence</p>
+          </div>
+          <div class="stat-item">
+            <h3>15</h3>
+            <p>Industry Awards</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Sections -->
+    <section id="story" class="story-section">
+      <div class="container">
+        <!-- Beginning -->
+        <div class="story-block">
+          <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Startup office collaboration">
+          </div>
+          <div class="story-content">
+            <div class="story-number">01</div>
+            <h2>The Beginning</h2>
+            <p>
+              Founded in 2020 during a transformative digital era, Max Albert Digital Studio began with a vision to help businesses thrive online. We recognized the gap between traditional agencies and modern digital needs.
+            </p>
+            <p>
+              Starting from a shared workspace, we built our reputation on delivering exceptional results for local businesses. Our focus was always on strategic thinking, clean design, and measurable outcomes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Growth -->
+        <div class="story-block">
+          <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team collaboration and growth">
+          </div>
+          <div class="story-content">
+            <div class="story-number">02</div>
+            <h2>Finding Our Path</h2>
+            <p>
+              As we expanded, we discovered our true strength: becoming strategic partners rather than just service providers. We focused on understanding business objectives first, then crafting solutions to achieve them.
+            </p>
+            <p>
+              This approach led to breakthrough results for our clients and established our reputation as a studio that delivers both beautiful design and tangible business value.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="story-quote">
+          <p>
+            "The best digital solutions aren't just technically impressive—they solve real business problems, connect with real people, and drive measurable growth."
+          </p>
+          <div class="quote-author">— Max Albert, Founder & CEO</div>
+        </div>
+
+        <!-- Today -->
+        <div class="story-block">
+          <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Modern digital studio workspace">
+          </div>
+          <div class="story-content">
+            <div class="story-number">03</div>
+            <h2>Where We Are Today</h2>
+            <p>
+              Today, Max Albert Digital Studio is a recognized leader in digital innovation. We've grown into a full-service studio with specialized teams across design, development, and digital strategy.
+            </p>
+            <p>
+              Our portfolio spans 20+ industries, from tech startups to established enterprises. We continue to push boundaries while maintaining our commitment to quality, partnership, and results-driven work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>
+            Comprehensive digital solutions designed to meet your unique business needs and drive growth.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>
+              Creating intuitive, beautiful user experiences that engage audiences and drive conversions. We design with purpose and user psychology in mind.
+            </p>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>
+              Building robust, scalable websites and applications with modern technologies. Performance, security, and maintainability are our priorities.
+            </p>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile Apps</h3>
+            <p>
+              Developing cross-platform mobile applications that provide seamless experiences across iOS and Android devices.
+            </p>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>E-Commerce Solutions</h3>
+            <p>
+              Creating powerful online stores with integrated payment systems, inventory management, and analytics dashboards.
+            </p>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Digital Strategy</h3>
+            <p>
+              Developing comprehensive digital roadmaps that align technology with business objectives for maximum impact.
+            </p>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>SEO & Marketing</h3>
+            <p>
+              Optimizing digital presence for search engines and implementing targeted marketing strategies to increase visibility.
+            </p>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Core Values</h2>
+          <p>
+            These principles guide everything we do, from initial concepts to final delivery and beyond.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Clarity Over Complexity</h3>
+            <p>
+              We believe the best solutions are often the simplest ones. We cut through complexity to deliver clear, effective results that anyone can understand and use.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Partnership Mindset</h3>
+            <p>
+              We work with you, not just for you. Your success is our success, and we're invested in your growth for the long term.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Results-Driven Approach</h3>
+            <p>
+              Every project starts with clear objectives and KPIs. We focus on delivering measurable outcomes that move your business forward.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Craftsmanship</h3>
+            <p>
+              We take pride in our work. From code to design, we pay attention to the details that make a difference in user experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Portfolio</h2>
+          <p>
+            A selection of projects that showcase our expertise across different industries and technologies.
+          </p>
+        </div>
+
+        <div class="portfolio-filter">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web">Web Design</button>
+          <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+          <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="web">
+            <div class="portfolio-img">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80" alt="Financial Dashboard Design">
+              <div class="portfolio-overlay">
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Financial Dashboard Platform</h3>
+              <p>A comprehensive financial analytics dashboard for wealth management with real-time data visualization and reporting.</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">React</span>
+                <span class="portfolio-tag">D3.js</span>
+                <span class="portfolio-tag">Node.js</span>
+                <span class="portfolio-tag">PostgreSQL</span>
+              </div>
+              <a href="#" class="btn btn-secondary">View Case Study</a>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="ecommerce">
+            <div class="portfolio-img">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="E-Commerce Platform">
+              <div class="portfolio-overlay">
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Luxury Fashion E-Commerce</h3>
+              <p>A high-end e-commerce platform featuring AR try-on, personalized recommendations, and seamless checkout experience.</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Next.js</span>
+                <span class="portfolio-tag">Stripe</span>
+                <span class="portfolio-tag">MongoDB</span>
+                <span class="portfolio-tag">AR Integration</span>
+              </div>
+              <a href="#" class="btn btn-secondary">View Case Study</a>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="mobile">
+            <div class="portfolio-img">
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Health & Fitness App">
+              <div class="portfolio-overlay">
+                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <h3>Health & Wellness App</h3>
+              <p>A comprehensive health tracking application with AI-powered workout plans, nutrition tracking, and progress analytics.</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">React Native</span>
+                <span class="portfolio-tag">Firebase</span>
+                <span class="portfolio-tag">AI/ML</span>
+                <span class="portfolio-tag">HealthKit</span>
+              </div>
+              <a href="#" class="btn btn-secondary">View Case Study</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+      <div class="container">
+        <div class="team-intro">
+          <h2>Meet Our Leadership Team</h2>
+          <p>
+            A diverse group of creative thinkers, problem solvers, and digital experts united by a common purpose: delivering exceptional results.
+          </p>
+        </div>
+
+        <div class="team-members">
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Max Albert">
+            </div>
+            <h3>Max Albert</h3>
+            <div class="member-role">Founder & CEO</div>
+            <p class="member-bio">
+              With over 8 years in digital strategy, Max leads our vision and ensures every project aligns with our commitment to excellence and measurable results. He holds an MSc in Computer Science from Stanford.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Taha Naeem">
+            </div>
+            <h3>Taha Naeem</h3>
+            <div class="member-role">Creative Director</div>
+            <p class="member-bio">
+              Taha brings designs to life with his exceptional eye for detail and user experience expertise, ensuring every project is both beautiful and functional. Formerly at Apple's design team.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005-128b-470d-9d5d-3d8a67c6e8f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Saad Hassan">
+            </div>
+            <h3>Saad Hassan</h3>
+            <div class="member-role">Lead Developer</div>
+            <p class="member-bio">
+              Saad specializes in building robust, scalable applications with clean, maintainable code that stands the test of time. Previously worked at Google on cloud infrastructure projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Let's Build Something Amazing Together</h2>
+            <p>
+              Ready to transform your digital presence? Get in touch with us to discuss your project. We'll respond within 24 hours.
+            </p>
+            
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>maxalbertofficial@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Phone</h4>
+                  <p>+1 (782) 831-5342</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Business Hours</h4>
+                  <p>Monday - Friday: 9am - 6pm EST</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Based In</h4>
+                  <p>United States & Canada</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" class="form-control" placeholder="John Smith" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" class="form-control" placeholder="Your Company (Optional)">
+              </div>
+              
+              <div class="form-group">
+                <label for="project">Project Type</label>
+                <select id="project" class="form-control">
+                  <option value="">Select a project type</option>
+                  <option value="website">Website Development</option>
+                  <option value="mobile">Mobile App</option>
+                  <option value="ecommerce">E-Commerce</option>
+                  <option value="design">UI/UX Design</option>
+                  <option value="strategy">Digital Strategy</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Project Details *</label>
+                <textarea id="message" class="form-control" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <div class="logo-icon">MA</div>
+              Max Albert Digital Studio
+            </div>
+            <p>
+              A full-service digital studio specializing in strategic design, development, and digital solutions that drive business growth. We transform complex challenges into elegant digital experiences.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-dribbble"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#story"><i class="fas fa-chevron-right"></i> Our Story</a></li>
+              <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+              <li><a href="#portfolio"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+              <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+              <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h4>Contact Info</h4>
+            <ul>
+              <li>
+                <a href="mailto:maxalbertofficial@gmail.com">
+                  <i class="fas fa-envelope"></i> maxalbertofficial@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+17828315342">
+                  <i class="fas fa-phone"></i> +1 (782) 831-5342
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-map-marker-alt"></i> United States & Canada
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          © 2025 Max Albert Digital Studio. All rights reserved.<br />
+          Crafting digital experiences that drive measurable growth.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        const backToTop = document.querySelector('.back-to-top');
+        
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+          backToTop.classList.add('visible');
+        } else {
+          header.classList.remove('scrolled');
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      // Form submission handler
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // In a real implementation, you would send this data to a server
+        // For now, we'll just show an alert
+        alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at ${email} within 24 hours.`);
+        
+        // Reset form
+        this.reset();
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if(targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Portfolio filtering
+      document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          const filter = this.getAttribute('data-filter');
+          const portfolioItems = document.querySelectorAll('.portfolio-item');
+          
+          portfolioItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+              }, 10);
+            } else {
+              item.style.opacity = '0';
+              item.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                item.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
+      });
+      
+      // Add subtle animation to elements on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      // Observe value cards, team members, portfolio items, and service cards
+      document.querySelectorAll('.value-card, .team-member, .portfolio-item, .service-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+
+      // Stats counter animation
+      const statItems = document.querySelectorAll('.stat-item h3');
+      const statsSection = document.querySelector('.stats-section');
+      
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            statItems.forEach(stat => {
+              const target = parseInt(stat.textContent);
+              let current = 0;
+              const increment = target / 50;
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  current = target;
+                  clearInterval(timer);
+                }
+                stat.textContent = Math.floor(current);
+              }, 20);
+            });
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      statsObserver.observe(statsSection);
+    </script>
+  </body>
+</html>
